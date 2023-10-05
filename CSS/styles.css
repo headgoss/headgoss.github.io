@@ -655,6 +655,7 @@ hr {
 form {
     max-width: 90vh;
     width: 90%;
+    color: white;
 }
 
 .input-row {
