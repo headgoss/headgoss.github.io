@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+</head>
+
+<body>
+    <!--Menu de navigation-->
+    <header>
+        <a class="logo">GM</a>
+        <ul class="menu">
+            <li>
+                <a class="animated" href="#Accueil">Accueil</a>
+            </li>
+            <li>
+                <a class="animated" href="#Compétence">Compétence</a>
+            </li>
+            <li>
+                <a class="animated" href="#Projets">Projets</a>
+            </li>
+            <li>
+                <a class="animated" href="#Connect">Connexion</a>
+            </li>
+            <li>
+                <div class="social-icon">
+                    <a class="animated" href="https://www.linkedin.com/in/mathieu-grossard-854795178"
+                        target="_blank"><img src="images/linkedin-modified.png"></a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+        
+    </header>
+
+    <span class="progress-bar">
+        <div class="filled"></div>
+    </span>
+
+    <!--Fin du Menu de navigation-->
+
+    <section id="Accueil" class="portfolio-section">
+        <div class="presentation-text">
+            <p>
+            <h1>Bonjour, bienvenu sur mon Portfolio.</h1><br>
+            <h1>Je me prénomme GROSSARD Mathieu.</h1>
+            <h1>Je suis un <span id="text"></span></h1>
+            </p>
+        </div>
+        <div class="presentation-image">
+            <img src="Images/moi.png" alt="Mathieu Grossard">
+        </div>
+    </section>
+
+    <section id="Compétence" class="portfolio-section">
+        <h1 id="Mes_competence">Mes Compétences</h1>
+        <div class="carousel-container">
+            <button class="carousel-button prev">&#10094;</button>
+    
+            <div class="carousel-content">
+                <div class="carousel-slide">
+                    <h2>Langues</h2>
+                    <hr> <!-- Ligne de séparation -->
+                    <div class="slide_langue">
+                        <div class="Langues_column">
+                            <div class="circle" id="French">
+                                <p>Français <br></p><p> Niveau: C2</p>
+                            </div>
+                            <a href="https://www.efset.org/cert/48gZYB" target="_blank" class="circle" id="English">
+                                <p>Anglais <br></p><p> Niveau: C2</p>
+                            </a>
+                            <div class="circle" id="Deutsch">
+                                <p>Allemand <br></p><p> Niveau: A1</p>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
+                <div class="carousel-slide">
+                    <h2>Programmation</h2>
+                    <hr>
+                    <div class="slide_programming">
+                        <!-- Colonne de gauche -->
+                        <div class="programming_column">
+                            <div class="circle" id="C_CPP">
+                                <p>C/C++</p>
+                            </div>
+                            <div class="circle" id="QT">
+                                <p>QT</p>
+                            </div>
+                            <div class="circle" id="Python">
+                                <p>Python</p>
+                            </div>
+                            <div class="circle" id="HTML">
+                                <p>HTML</p>
+                            </div>
+                        </div>
+                
+                        <!-- Colonne de droite -->
+                        <div class="programming_column">
+                            <div class="circle" id="CSS">
+                                <p>CSS</p>
+                            </div>
+                            <div class="circle" id="PHP">
+                                <p>PHP</p>
+                            </div>
+                            <div class="circle" id="VHDL">
+                                <p>VHDL</p>
+                            </div>
+                            <div class="circle" id="Matlab">
+                                <p>Matlab</p>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                <div class="carousel-slide">
+                    <h2>Logiciels</h2>
+                    <hr>
+                    <div class="slide_Logiciels">
+                        <!-- Colonne de gauche -->
+                        <div class="Logiciels_column">
+                            <div class="circle" id="Visual">
+                                <p>Visual Studio Code</p>
+                            </div>
+                            <div class="circle" id="Simulink">
+                                <p>Matlab / Simulink</p>
+                            </div>
+                            <div class="circle" id="ROS">
+                                <p>ROS</p>
+                            </div>
+                        </div>
+                
+                        <!-- Colonne de droite -->
+                        <div class="Logiciels_column">
+                            <div class="circle" id="RTMaps">
+                                <p>RTMaps</p>
+                            </div>
+                            <div class="circle" id="Microsoft">
+                                <p>Microsoft Office</p>
+                            </div>
+                            <div class="circle" id="Linux">
+                                <p>Linux</p>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+    
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+    </section>
+    
+    <section id="Projets" class="portfolio-section">
+        <h1 id="Mes_Projets">Mes Projets</h1>
+        <div class="year-selector">
+            <span data-year="L3">L3</span>
+            <span data-year="M1">M1</span>
+            <span data-year="M2">M2</span>
+        </div>
+        
+        <div class="projects-display">
+            <!-- Contenu pour L3 -->
+            <div class="year-content L3-content active">
+                <!-- Exemple de projet pour L3 -->
+                <div class="project" onclick="window.open('https://github.com/headgoss/L3_bracelet_de_Chute', '_blank')">
+                    <img src="Images/bracelet.jpg" alt="Image du projet L3 1">
+                    <p>Bracelet de Chute</p>
+                </div>
+                <!-- Ajouter d'autres projets si nécessaire pour L3... -->
+                <div class="project" onclick="window.open('https://github.com/headgoss/L3_Cpp_GAME_Linux', '_blank')">
+                    <img src="Images/retro.jpg" alt="Image du projet L3 2">
+                    <p>C++ Zelda sur Linux</p>
+                </div>
+            </div>
+    
+            <!-- Contenu pour M1 -->
+            <div class="year-content M1-content">
+                <!-- Exemple de projet pour M1 -->
+                <div class="project" onclick="window.open('https://github.com/headgoss/M1_page_internet', '_blank')">
+                    <img src="Images/site.jpg" alt="Image du projet M1 1">
+                    <p>Site Internet</p>
+                </div>
+                <!-- Ajouter d'autres projets si nécessaire pour M1... -->
+                <div class="project" onclick="window.open('https://github.com/headgoss/M1_plateau_tournant', '_blank')">
+                    <img src="Images/plateau.jpg" alt="Image du projet M1 2">
+                    <p>Plateau Tournant</p>
+                </div>
+            </div>
+    
+            <!-- Contenu pour M2 -->
+            <div class="year-content M2-content">
+                <!-- Exemple de projet pour M2 -->
+                <div class="project" onclick="window.open('https://github.com/headgoss/Grilles_d_accumulation_2D_pour_vehicule_autonome', '_blank')">
+                    <img src="Images/grille.jpg" alt="Image du projet M2 1">
+                    <p>Grille d'accumulation</p>
+                </div>
+                <!-- Ajouter d'autres projets si nécessaire pour M2... -->                
+                <div class="project" onclick="window.open('https://github.com/headgoss/M2_stage', '_blank')">
+                    <img src="Images/stage.jpg" alt="Image du projet M2 1">
+                    <p>Filtre de Kalman</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+
+    <section id="Connect" class="portfolio-section">
+        <h1 id="Contact_me">Contactez-moi</h1>
+            <form action="mailto:grossard.mathieu@gmail.com" method="post" enctype="text/plain">
+                <div class="input-row">
+                    <input type="text" name="nom" placeholder="Nom">
+                    <input type="text" name="prenom" placeholder="Prénom">
+                </div>
+                <div class="input-row">
+                    <input type="email" name="email" placeholder="E-mail">
+                    <input type="text" name="numero" placeholder="Numéro de contact">
+                </div>
+                <div class="input-row">
+                    <textarea name="message" placeholder="Votre message"></textarea>
+                </div>
+                <input type="submit" value="Envoyer">
+            </form>
+    </section>
+        
+    
+
+    <script src="JS/navbar.js"></script>
+    <script src="JS/burger.js"></script>
+    <script src="JS/progress_bar.js"></script>
+    <script src="JS/stars.js"></script>
+    <script src="JS/text.js"></script>
+    <script src="JS/carousel.js"></script>
+    <script src="JS/year.js"></script>
+</body>
+
+</html>

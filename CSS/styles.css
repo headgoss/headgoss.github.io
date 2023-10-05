@@ -1,0 +1,831 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+/* Menu de navigation "Navbar" */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 8% 4%;
+    z-index: 10;
+}
+
+header.sticky {
+    padding: 4% 4%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+header .logo {
+    position: relative;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    transition: 0.6s;
+}
+
+header ul {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li {
+    position: relative;
+    list-style: none;
+}
+
+header ul li a {
+    position: relative;
+    margin: 2em 0.2em;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 0.1em;
+    font-weight: 2em;
+    transition: 0.6s;
+}
+
+.portfolio-section {
+    /* height: 50vh; /* Sur mobile, chaque section prendra la moitié de l'écran pour mieux voir le contenu */
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    transform: translateX(100%);
+    transition: transform 0.8s ease-in;
+    z-index: 5;
+}
+
+.menu li {
+    top : 8%;
+    font-size: 1.5em;
+    padding: 0.2em;
+    justify-content: space-between;
+    margin: 10%;
+}
+
+/* LINKEDIN */
+.social-icon {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+}
+
+.social-icon a {
+    width: 1.5em;
+    height: 1.5em;
+    background: rgba(217, 217, 217, 0.1);
+    border-radius: 50%;
+    line-height: 1;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    position: relative; /* Ajouté pour permettre un positionnement absolu de ::before */
+    overflow: hidden;   /* Ajouté pour masquer tout débordement de ::before */
+}
+
+.social-icon a::before {
+    content: "";
+    width: 100%; /* Mis à jour pour correspondre à la largeur de l'élément parent */
+    height: 100%; /* Mis à jour pour correspondre à la hauteur de l'élément parent */
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Ajout de translate pour centrer le cercle */
+    transition: 0.3s ease-in-out;
+}
+
+.social-icon a:hover::before {
+    transform: translate(-50%, -50%) scale(1.5); /* Mise à jour pour agrandir le cercle */
+}
+
+.social-icon a img {
+    width: 100%;
+    z-index: 100;
+    transition: 0.3s ease-in-out;
+}
+
+.social-icon a:hover img {
+    filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
+}
+/* Fin LINKEDIN */
+
+.burger {
+    display: block;
+    cursor: pointer;
+    padding-right: 5em;
+    z-index: 20;
+}
+
+.burger div {
+    width: 2em;
+    height: 0.2em;
+    background-color: white;
+    margin: 0.3em;
+}
+
+.nav-active {
+    transform: translate(0%);
+}
+
+.animated {
+    background: url('../Images/stars.jpg') no-repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: moveBg 90s linear infinite;
+    -webkit-animation: moveBg 90s linear infinite;
+}
+
+/* Text Background*/
+
+@keyframes moveBg {
+    0% {
+        background-position: 0% 30%;
+    }
+
+    /*
+    20%{
+        background-position: 0% 50%;
+    }
+
+    40%{
+        background-position: 0% 70%;
+    }
+
+    60%{
+        background-position: 100% 0%;
+    }
+
+    80%{
+        background-position: 100% 30%;
+    }*/
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Fin de navbar Menu */
+
+/*Section 1 star*/
+#Accueil {
+    background-image: url(../Images/Section_1.jpg);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Étoiles filantes */
+.shooting-star {
+    position: absolute;
+    width: 5%;
+    height: 5%;
+    background-color: white;
+    opacity: 0.8;
+    transition: transform 8s linear;
+    /* Note: we've removed the moveStar animation and added the transition */
+    background-image: url('../Images/star.svg'); /* Remplacez 'path/to/' par le chemin d'accès réel vers votre image ou SVG */
+    background-repeat: no-repeat;
+    background-size: contain; /* cela s'assure que l'image/le SVG s'adapte à la taille de la div */
+    background-color: transparent; /* rendre la couleur d'arrière-plan transparente pour voir l'image/SVG */
+    filter: invert(100%) blur(0.5em);
+}
+
+@keyframes fadeOutStar {
+    to {
+        opacity: 0;
+    }
+}
+
+
+/* Étoiles scintillantes */
+.twinkling-star {
+    position: absolute;
+    width: 2%;
+    height: 2%;
+    background-color: white;
+    animation-name: twinkle;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    background-image: url('../Images/star.svg'); /* Remplacez 'path/to/' par le chemin d'accès réel vers votre image ou SVG */
+    background-repeat: no-repeat;
+    background-size: contain; /* cela s'assure que l'image/le SVG s'adapte à la taille de la div */
+    background-color: transparent; /* rendre la couleur d'arrière-plan transparente pour voir l'image/SVG */
+    filter: invert(100%) blur(0.3em) brightness(5);
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.2;
+    }
+    20% {
+        opacity: 0.4;
+    }
+    30% {
+        opacity: 0.6;
+    }
+    40% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 0.8;
+    }
+    70% {
+        opacity: 0.6;
+    }
+    80% {
+        opacity: 0.4;
+    }
+    20% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/*Section 1 star*/
+
+#Compétence {
+    background-image: url(../Images/Section_2.jpg);
+}
+
+#Projets {
+    background-image: url(../Images/Section_3.jpg);
+}
+
+#Connect {
+    background-image: url(../Images/Section_4.jpg);
+}
+
+.progress-bar{
+    position: fixed;
+    width: 100%;
+    height: 1vh;
+    z-index: 200000000;
+}
+
+.filled{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, gray, white);
+}
+
+/*Accueil*/
+.portfolio-section {
+    display: flex;
+    align-items: center; /* centre les éléments verticalement */
+    justify-content: space-between; /* maximise l'espace entre les éléments */
+    color: white;  /* texte en blanc */
+    height: 100%; /* pour occuper toute la hauteur de la section */
+    position: relative; /* permet de positionner les enfants en absolu par rapport à cette section */
+}
+
+.presentation-text {
+    width: 50%;
+    font-size: min(calc(2.5vw + 0.5vw),150%);
+    line-height: 1.5;
+    text-align: left; /* texte aligné à gauche */
+    margin-left: 5%; /* marge gauche pour le décentrer un peu */
+    margin-right: 5%;
+}
+
+.presentation-image {
+    position: relative; /* positionnement absolu par rapport à .portfolio-section */
+    right: 0;
+    left: 0%;
+    bottom: -10%;
+}
+
+.presentation-image img {
+    width: 100%; /* ajustez selon la taille souhaitée */
+    height: auto; /* pour maintenir les proportions de l'image */
+    -webkit-mask-image: radial-gradient(circle at center, black 70%, transparent 90%);
+    mask-image: radial-gradient(circle at center, black 70%, transparent 90%);
+}
+/*Fin Accueil*/
+
+/* Début Compétence*/
+#Mes_competence {
+    position: absolute;
+    top: 5vh;
+}
+
+.portfolio-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* ou autre couleur de votre choix */
+}
+
+.carousel-container {
+    position: relative;
+    width: 80%; /* 90% de la largeur de la fenêtre, modifiable selon vos préférences */
+    height: 80%;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.5); /* fond blanc légèrement transparent */
+    border-radius: 5vh; /* coins arrondis */
+}
+
+.carousel-content {
+    display: flex;
+    height: 100%;
+    width: 300%; /* 3 slides, donc 300% */
+    transition: transform 0.9s ease; /* Transition douce sur transform */
+}
+
+.carousel-slide {
+    flex: 0 0 33.33%; /* chaque slide prendra un tiers de la largeur totale du contenu du carrousel */
+    display: flex;
+    flex-direction: column; /* pour empiler le titre, la ligne de séparation et le contenu */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s;
+    position : relative;
+}
+
+.carousel-slide h2 {
+    position: absolute; /* pour positionner le titre exactement où vous le souhaitez dans la slide */
+    top: 2%; /* pour le mettre tout en haut */
+    left: 0; /* pour le démarrer depuis le côté gauche */
+    width: 100%; /* pour s'étendre sur toute la largeur de la slide */
+    text-align: center; /* pour centrer le texte dans le titre */
+    margin: 0; /* pour supprimer tout espace supplémentaire autour du titre */
+    /* ajoutez des styles supplémentaires comme la couleur, la taille des caractères, etc., si nécessaire */
+}
+
+.carousel-slide hr {
+    position: absolute; 
+    top: calc(10px + 1.5em); /* la hauteur du titre (supposons 1.5em) + l'espacement du haut */
+    left: 15%; /* pour centrer la ligne horizontalement */
+    width: 70%; /* taille de la ligne de séparation */
+    border: none; /* pour supprimer la bordure standard */
+    border-top: 5px solid white; /* pour ajouter une bordure en haut, ce qui sert de ligne de séparation */
+    /* ajoutez d'autres styles si nécessaire */
+}
+
+hr {
+    width: 80%;
+    border: 1px solid white;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.carousel-button.prev {
+    left: 0;
+}
+
+.carousel-button.next {
+    right: 0;
+}
+
+/* Langues */
+.slide_langue {
+    margin-top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Pour l'affichage en colonne sur les téléphones */
+    width: 100%;
+    height: 85%;
+}
+
+.Langues_column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%; /* Ce pourcentage peut être ajusté pour définir la largeur des colonnes */
+}
+
+.circle {
+    position: relative;
+    width: calc(20vw + 5vw);
+    height: calc(20vw + 5vw);
+    border-radius: 50%;
+    background-image: url('../Images/galaxie.jpg');
+    background-size: cover;
+    background-position: center;
+    margin: 2vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 20px 15px rgb(255, 253, 253); /* Ceci crée l'effet blanc autour du cercle */
+}
+
+.circle p {
+    font-size: max(2.5vw, 2.5vh);
+    color: rgb(255, 255, 255);
+    z-index: 20; /* Pour s'assurer que le texte est toujours au-dessus de l'arrière-plan */
+    position: relative; /* Pour le positionnement relatif par rapport à d'autres éléments */
+    text-shadow: 0px 0px 10px rgb(0, 0, 0)
+}
+
+.circle::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.Langues_column .circle {    
+    width: max(20vw, 20vh);
+    height: max(20vw, 20vh);
+}
+/* End Langues*/
+/* Programming */
+.slide_programming {
+    margin-top: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+.programming_column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%; /* Ce pourcentage peut être ajusté pour définir la largeur des colonnes */
+}
+
+.programming_column .circle {          
+    width: max(12vw, 12vh);
+    height: max(12vw, 12vh);
+}
+/* End Programming*/
+/* Start Logiciels */
+.slide_Logiciels {
+    margin-top: 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 90%;
+}
+
+.Logiciels_column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%; /* Ce pourcentage peut être ajusté pour définir la largeur des colonnes */
+}
+
+.Logiciels_column .circle {        
+    width: max(15vw, 15vh);
+    height: max(15vw, 15vh);
+}
+/* End Logiciels */
+/* Fin Compétence */
+
+/* Projet start */
+#Mes_Projets{
+    position: absolute;
+    top: 5vh;
+}
+
+.year-selector {
+    position: absolute;
+    top: 10%;
+    width: 60%;
+    display: flex;
+    justify-content: space-between; /* Distribue les éléments également dans le conteneur */
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 0 0;
+    border-radius: 5vh;
+    z-index: 1000;
+}
+
+.year-selector span {
+    cursor: pointer;
+    flex: 1; /* Donne la même flexibilité à chaque élément */
+    padding: 1vh 0;
+    text-align: center; /* Centre le texte */
+    font-size: 1em;
+    font-weight: bold;
+    color: black; /* Couleur du texte */
+    border-right: 0.5vh solid black; /* Trait de séparation entre chaque année */
+}
+
+.year-selector span:last-child {
+    border-right: none;
+}
+
+.year-selector span.active {
+    background-color: white;
+    color: black; /* Couleur du texte lorsqu'une année est sélectionnée */
+}
+
+/* Border radius pour L3 */
+.year-selector span:first-child {
+    border-top-left-radius: 5vh;
+    border-bottom-left-radius: 5vh;
+}
+
+/* Border radius pour M2 */
+.year-selector span:last-child {
+    border-top-right-radius: 5vh;
+    border-bottom-right-radius: 5vh;
+}
+
+.projects-display {
+    position: absolute;   /* ajouté pour permettre le positionnement absolu */
+    top: calc(10% + 10% + 1vh); /* 10% pour la position de .year-selector, 10% pour sa hauteur approximative et 1vh pour le padding de .year-selector */
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Si vous avez plus de 3 projets et que vous souhaitez qu'ils passent à la ligne suivante */
+}
+
+.year-content {
+    display: none;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;    
+    height: 100%;
+    align-items: center;
+}
+
+.project {
+    width: 40%; /* Prend presque toute la largeur de l'écran, avec une petite marge */
+    height: 40%;
+    margin: 5% auto; /* Centré horizontalement et avec une marge verticale */
+    transition: transform 0.3s ease;
+}
+
+.year-content.active {
+    display: flex;
+    flex-direction: column; /* Les projets sont empilés verticalement */
+    align-items: center; /* Centré horizontalement */
+    text-align: center;
+}
+
+.project:hover {
+    transform: scale(1.05); /* Agrandit légèrement le projet lors du survol */
+}
+
+.project img {
+    max-width: 100%; /* S'assure que l'image ne dépasse pas la largeur de son conteneur */
+    border-radius: 5vh; /* Arrondit les coins de l'image */
+}
+
+.project p {
+    margin-top: 1vh; /* Ajoute un espace entre l'image et le texte du projet */
+    font-size: 1em;
+    font-weight: 600;
+}
+/* Projet end */
+
+/* Start Contact */
+#Contact_me{
+    position: absolute;
+    top: 5vh;
+}
+
+#Connect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    max-width: 90vh;
+    width: 90%;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 40%; /* Répartit les champs sur deux colonnes */
+    padding: 2vh;
+    border-radius: 5vh;
+    background-color: rgba(255, 255, 255, 0.5); /* Fond blanc semi-transparent pour chaque champ */
+    outline: none; /* Supprime l'outline par défaut lorsqu'un champ est focus */
+}
+
+textarea {
+    width: 100%; /* Le champ de texte prend toute la largeur */
+    height: 30vh;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 1vh;
+    border: none;
+    border-radius: 5vh;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+/* End Contact*/
+
+
+@media (min-width: 600px) {
+    .portfolio-section {
+        position: relative;
+        /* Sur tablette, la hauteur de chaque section peut être un peu plus petite */
+    }
+
+    .burger {
+        display: none;
+    }
+
+    header {
+        padding: 5% 5%;
+    }
+
+    .menu {
+        flex-direction: row;
+        transform: translate(0%);
+        height: auto;
+        top: auto;
+        width: auto;
+        z-index: 0;
+        background-color: transparent;
+        right: 5%;
+        align-items: center;
+        font-size: 1em;
+    }
+
+    header .menu {
+        justify-content: space-between;
+    }
+
+    .menu li {
+        margin: 0.5%;
+        font-size: 1.15em;
+    }
+
+    header.sticky {
+        padding: 1.5vh 50px;
+        background-color: black;
+    }
+
+    header.sticky .menu {
+        background: transparent;
+    }
+
+    header .logo {
+        font-size: 1.5em;
+    }
+
+    .presentation-image {
+        position: relative; /* positionnement absolu par rapport à .portfolio-section */
+        right: 5%;
+        bottom: -10%;
+    }
+
+    .presentation-text {
+        width: 50%;
+        line-height: 1.5;
+    }
+
+    .carousel-slide {
+        min-width: 500px;
+    }
+
+    .slide_langue {
+        flex-direction: row; /* Changez en ligne pour les tablettes et ordinateurs */
+        justify-content: space-around; /* Espacement égal entre les cercles */
+        margin-top: 5%;
+    }
+
+    .Langues_column {
+        width: 80%; /* Divise l'espace en 4 (avec un peu d'espace entre les colonnes) */
+        flex-direction: row; /* Les cercles sont disposés en colonne */
+    }
+
+    .slide_programming {
+        flex-direction: column; /* Changez en ligne pour les tablettes et ordinateurs */
+        justify-content: space-evenly; /* Espacement égal entre les colonnes */
+        margin-top: 5%;
+    }
+
+    .programming_column {
+        width: 80%; /* Divise l'espace en 4 (avec un peu d'espace entre les colonnes) */
+        flex-direction: row; /* Les cercles sont disposés en colonne */
+    }
+
+    .slide_Logiciels {
+        flex-direction: column; /* Changez en ligne pour les tablettes et ordinateurs */
+        justify-content: space-evenly; /* Espacement égal entre les colonnes */
+        margin-top: 5%;
+    }
+
+    .Logiciels_column {
+        width: 80%; /* Divise l'espace en 4 (avec un peu d'espace entre les colonnes) */
+        flex-direction: row; /* Les cercles sont disposés en colonne */
+    }
+
+    .project {
+        width: 60vh; /* Prenant environ la moitié de l'espace disponible pour tenir compte des marges */
+        margin: 2.5%; /* Espace entre les projets */
+    }
+
+    .year-content.active {
+        flex-direction: row; /* Les projets sont sur une seule ligne */
+        justify-content: space-between; /* Espacement uniforme entre les projets */
+    }
+}
+
+@media (min-width: 1024px) {
+    .portfolio-section {
+        position: relative;
+    }
+
+    header .logo {
+        font-size: 2.5em;
+    }
+
+    .presentation-image {
+        position: relative; /* positionnement absolu par rapport à .portfolio-section */
+        right: 15%;
+        bottom: -10%;
+    }
+
+    .presentation-text {
+        width: 50%;
+        line-height: 1.5;
+    }
+
+    .menu {
+        font-size: 1.5em;
+    }
+
+    .carousel-slide {
+        min-width: 700px;
+    }
+}
