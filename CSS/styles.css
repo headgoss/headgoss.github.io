@@ -655,7 +655,6 @@ hr {
 form {
     max-width: 90vh;
     width: 90%;
-    color: white;
 }
 
 .input-row {
@@ -670,6 +669,9 @@ input[type="text"], input[type="email"], textarea {
     border-radius: 5vh;
     background-color: rgba(255, 255, 255, 0.5); /* Fond blanc semi-transparent pour chaque champ */
     outline: none; /* Supprime l'outline par défaut lorsqu'un champ est focus */
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 textarea {
@@ -686,6 +688,8 @@ input[type="submit"] {
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 input[type="submit"]:hover {
@@ -732,7 +736,7 @@ input[type="submit"]:hover {
 
     header.sticky {
         padding: 1.5vh 50px;
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.6);
     }
 
     header.sticky .menu {
